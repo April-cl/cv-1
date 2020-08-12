@@ -6,15 +6,23 @@ let string = `
    现在我们来画一个会动的八卦图
 */
 `;
-let n = 0;
+let string2 = "";
+let n = -1;
 
-CodeArea.innerHTML = string.substring(0, n);
+// string = string.replace(/\n/g, "<br>");    //使用正则表达式替换换行，有缺陷，会把<br打印出来
 
 let step = () => {
   setTimeout(() => {
     n = n + 1;
-    CodeArea.innerHTML = string.substring(0, n);
-    if (n < string.length) {
+    if (string[n] === "\n") {
+      string2 += "<br>";
+    } else {
+      console.log(string[n]);
+      string2 += string[n];
+    }
+
+    CodeArea.innerHTML = string2;
+    if (n < string.length - 1) {
       step();
     }
   }, 100);

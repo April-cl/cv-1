@@ -121,15 +121,23 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var CodeArea = document.querySelector("#CodeArea");
 var DisplayArea = document.querySelector("#DisplayArea");
 var string = "\n/* Hello \u827E\u745E\u5DF4\u8482\n   \u73B0\u5728\u6211\u4EEC\u6765\u753B\u4E00\u4E2A\u4F1A\u52A8\u7684\u516B\u5366\u56FE\n*/\n";
-var n = 0;
-CodeArea.innerHTML = string.substring(0, n);
+var string2 = "";
+var n = -1; // string = string.replace(/\n/g, "<br>");    //使用正则表达式替换换行，有缺陷，会把<br打印出来
 
 var step = function step() {
   setTimeout(function () {
     n = n + 1;
-    CodeArea.innerHTML = string.substring(0, n);
 
-    if (n < string.length) {
+    if (string[n] === "\n") {
+      string2 += "<br>";
+    } else {
+      console.log(string[n]);
+      string2 += string[n];
+    }
+
+    CodeArea.innerHTML = string2;
+
+    if (n < string.length - 1) {
       step();
     }
   }, 100);
@@ -164,7 +172,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57748" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62065" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
