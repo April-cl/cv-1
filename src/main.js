@@ -1,5 +1,4 @@
 let CodeArea = document.querySelector("#CodeArea");
-let DisplayArea = document.querySelector("#DisplayArea");
 let style = document.querySelector("#style");
 
 let string = `
@@ -10,8 +9,53 @@ let string = `
  */
 #DisplayArea {
   border: 1px solid red;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+/* 
+ * 接下来我要在展区画一个圆
+ */
+#BaguaMap {
+  position: absolute;
+  left: 50px;
+  top: 50px;
   width: 200px;
   height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+/* 
+ * 画出黑白无极
+ */
+#BaguaMap {
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
+}
+#BaguaMap::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);
+}
+#BaguaMap::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);
 }
 `;
 let string2 = "";
@@ -31,7 +75,7 @@ let step = () => {
     if (n < string.length - 1) {
       step();
     }
-  }, 50);
+  }, 10);
 };
 
 step();
