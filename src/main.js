@@ -17,9 +17,6 @@ let string = `
  * 接下来我要在展区画一个圆
  */
 #BaguaMap {
-  position: absolute;
-  left: 50px;
-  top: 50px;
   width: 200px;
   height: 200px;
   border-radius: 50%;
@@ -32,9 +29,6 @@ let string = `
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);
 }
 #BaguaMap::before {
-  content: "";
-  display: block;
-  position: absolute;
   width: 100px;
   height: 100px;
   top: 0;
@@ -45,9 +39,6 @@ let string = `
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);
 }
 #BaguaMap::after {
-  content: "";
-  display: block;
-  position: absolute;
   width: 100px;
   height: 100px;
   bottom: 0;
