@@ -120,7 +120,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"main.js":[function(require,module,exports) {
 var CodeArea = document.querySelector("#CodeArea");
 var style = document.querySelector("#style");
-var string = "\n/* \n * Hello \u827E\u745E\u5DF4\u8482\n * \u73B0\u5728\u6211\u4EEC\u6765\u753B\u4E00\u4E2A\u4F1A\u52A8\u7684\u516B\u5366\u56FE\n * \u9996\u5148\u8981\u7ED9\u6211\u4E00\u4E2Adiv\u7528\u6765\u5F53\u6548\u679C\u5C55\u533A\n */\n#DisplayArea {\n  border: 1px solid red;\n  width: 300px;\n  height: 300px;\n  position: relative;\n}\n/* \n * \u63A5\u4E0B\u6765\u6211\u8981\u5728\u5C55\u533A\u753B\u4E00\u4E2A\u5706\n */\n#BaguaMap {\n  width: 200px;\n  height: 200px;\n  border-radius: 50%;\n  box-shadow: 0 0 3px rgba(0,0,0,0.5);\n}\n/* \n * \u753B\u51FA\u9ED1\u767D\u65E0\u6781\n */\n#BaguaMap {\n  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n#BaguaMap::before {\n  width: 100px;\n  height: 100px;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n  background: #000;\n  border-radius: 50%;\n  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#BaguaMap::after {\n  width: 100px;\n  height: 100px;\n  bottom: 0;\n  left: 50%;\n  transform: translateX(-50%);\n  background: #fff;\n  border-radius: 50%;\n  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);\n}\n";
+var string = "\n/* \n * Hello \u827E\u745E\u5DF4\u8482\n * \u73B0\u5728\u6211\u4EEC\u6765\u753B\u4E00\u4E2A\u4F1A\u52A8\u7684\u516B\u5366\u56FE\n * \u9996\u5148\u8981\u7ED9\u6211\u4E00\u4E2Adiv\u7528\u6765\u5F53\u6548\u679C\u5C55\u533A\n */\n#DisplayArea {\n  border: 1px solid black;\n  background: rgba(255,255,255,0.5);\n  width: 300px;\n  height: 300px;\n  position: fixed;\n  right: 20px;\n  top: 20px;\n}\n/* \n * \u63A5\u4E0B\u6765\u6211\u8981\u5728\u5C55\u533A\u753B\u4E00\u4E2A\u5706\n */\n#BaguaMap {\n  width: 200px;\n  height: 200px;\n  border-radius: 50%;\n  box-shadow: 0 0 3px rgba(0,0,0,0.5);\n}\n/* \n * \u753B\u51FA\u9ED1\u767D\u65E0\u6781\n */\n#BaguaMap {\n  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 100%);\n}\n#BaguaMap::before {\n  width: 100px;\n  height: 100px;\n  top: 0;\n  left: 50%;\n  transform: translateX(-50%);\n  background: #000;\n  border-radius: 50%;\n  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 100%);\n}\n#BaguaMap::after {\n  width: 100px;\n  height: 100px;\n  bottom: 0;\n  left: 50%;\n  transform: translateX(-50%);\n  background: #fff;\n  border-radius: 50%;\n  background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 25%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%, rgba(0,0,0,1) 100%);\n}\n";
 var string2 = "";
 var n = -1;
 
@@ -136,6 +136,8 @@ var step = function step() {
 
     CodeArea.innerHTML = string2;
     style.innerHTML = string.substring(0, n);
+    window.scrollTo(0, 9999);
+    CodeArea.scrollTo(0, 9999);
 
     if (n < string.length - 1) {
       step();
@@ -172,7 +174,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60914" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61167" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

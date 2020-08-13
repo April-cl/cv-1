@@ -8,10 +8,13 @@ let string = `
  * 首先要给我一个div用来当效果展区
  */
 #DisplayArea {
-  border: 1px solid red;
+  border: 1px solid black;
+  background: rgba(255,255,255,0.5);
   width: 300px;
   height: 300px;
-  position: relative;
+  position: fixed;
+  right: 20px;
+  top: 20px;
 }
 /* 
  * 接下来我要在展区画一个圆
@@ -63,6 +66,8 @@ let step = () => {
 
     CodeArea.innerHTML = string2;
     style.innerHTML = string.substring(0, n);
+    window.scrollTo(0, 9999);
+    CodeArea.scrollTo(0, 9999);
     if (n < string.length - 1) {
       step();
     }
