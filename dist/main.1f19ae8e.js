@@ -120,9 +120,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"main.js":[function(require,module,exports) {
 var CodeArea = document.querySelector("#CodeArea");
 var DisplayArea = document.querySelector("#DisplayArea");
-var string = "\n/* Hello \u827E\u745E\u5DF4\u8482\n   \u73B0\u5728\u6211\u4EEC\u6765\u753B\u4E00\u4E2A\u4F1A\u52A8\u7684\u516B\u5366\u56FE\n*/\n";
+var style = document.querySelector("#style");
+var string = "\n/* \n * Hello \u827E\u745E\u5DF4\u8482\n * \u73B0\u5728\u6211\u4EEC\u6765\u753B\u4E00\u4E2A\u4F1A\u52A8\u7684\u516B\u5366\u56FE\n * \u9996\u5148\u8981\u7ED9\u6211\u4E00\u4E2Adiv\u7528\u6765\u5F53\u6548\u679C\u5C55\u533A\n */\n#DisplayArea {\n  border: 1px solid red;\n  width: 200px;\n  height: 200px;\n}\n";
 var string2 = "";
-var n = -1; // string = string.replace(/\n/g, "<br>");    //使用正则表达式替换换行，有缺陷，会把<br打印出来
+var n = -1;
 
 var step = function step() {
   setTimeout(function () {
@@ -131,16 +132,16 @@ var step = function step() {
     if (string[n] === "\n") {
       string2 += "<br>";
     } else {
-      console.log(string[n]);
       string2 += string[n];
     }
 
     CodeArea.innerHTML = string2;
+    style.innerHTML = string.substring(0, n);
 
     if (n < string.length - 1) {
       step();
     }
-  }, 100);
+  }, 50);
 };
 
 step();
@@ -172,7 +173,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62065" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55484" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
