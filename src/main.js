@@ -70,7 +70,7 @@ let step = () => {
     if (n < string.length - 1) {
       step();
     }
-  }, 10);
+  }, 50);
 };
 
 step();
