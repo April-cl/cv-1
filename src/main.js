@@ -12,9 +12,6 @@ let string = `
   background: rgba(255,255,255,0.5);
   width: 300px;
   height: 300px;
-  position: fixed;
-  right: 20px;
-  top: 20px;
 }
 /* 
  * 接下来我要在展区画一个圆
@@ -60,6 +57,8 @@ let step = () => {
     n = n + 1;
     if (string[n] === "\n") {
       string2 += "<br>";
+    } else if (string[n] === " ") {
+      string2 += "&nbsp;";
     } else {
       string2 += string[n];
     }

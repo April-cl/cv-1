@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+#CodeArea {
+  word-break: break-all;
+}
+
 #BaguaMap {
   position: absolute;
   left: 50px;
@@ -20,6 +24,26 @@
   content: "";
   display: block;
   position: absolute;
+}
+
+#DisplayArea {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+@media (max-width: 500px) {
+  #CodeArea {
+    height: 70vh;
+    overflow: auto;
+  }
+  #DisplayArea {
+    /* transform: scale(0.8); */
+    height: 30vh;
+    position: relative;
+    right: auto;
+    top: auto;
+    margin: auto;
+  }
 }
 
 
